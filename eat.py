@@ -1,13 +1,12 @@
 from Pos import *
 from Pièce import *
 
-
 point = Piece()
 
 
 class Eat:
 
-    def __init__(self, pos:Position):
+    def __init__(self, pos: Position):
         self.pos = pos
         self.possibilite = False
         self.piece = ''
@@ -23,7 +22,6 @@ class Eat:
 
         else:
             self.possibilite = False
-
 
     def delete(self, piece):
         self.pos.case[piece] = False
