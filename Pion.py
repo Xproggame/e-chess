@@ -48,9 +48,9 @@ class Pion:
             if self.avant == 1:
                 self.count_b += 1
                 self.pos.case[f'r{self.count_b}'] = self.pos.case.pop(pion)
-                self.pos.position[self.pos_pion] = f'r{self.count_b}'
+                self.pos.position[self.pos_pion] = f'r{self.count_b}b'
             
             else:
                 self.count_n += 1
                 self.pos.case[f'r{self.count_n}'] = self.pos.case.pop(pion)
-                self.pos.position[self.pos_pion] = f'r{self.count_n}'
+                self.pos.position[self.pos_pion] = f'r{self.count_n}n'
