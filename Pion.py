@@ -2,8 +2,6 @@ from In import *
 from Mouvement import *
 from eat import *
 
-out = In()
-
 
 class Pion:
 
@@ -31,12 +29,12 @@ class Pion:
         if int(self.pos.position.get(self.pos_pion)[0]) + self.avant == '':
             self.list_move.append([self.avant, 0])
 
-        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] + 1))
+        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] + 1), couleur)
 
         if self.eat.possibilite:
             self.list_move.append([self.avant, 1, self.eat.point])
 
-        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] - 1))
+        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] - 1), couleur)
 
         if self.eat.possibilite:
             self.list_move.append([self.avant, -1, self.eat.point])
