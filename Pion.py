@@ -17,6 +17,7 @@ class Pion:
         self.avant = 0
 
     def mouvement(self, pion: str, couleur):
+        self.list_move = []
         self.pos_pion = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1])
         self.list_pos_pion = [int(self.pos_pion[0]), int(self.pos_pion[1])]
 
@@ -26,18 +27,23 @@ class Pion:
         else:
             self.avant = -1
 
-        if int(self.pos.position.get(self.pos_pion)[0]) + self.avant == '':
-            self.list_move.append([self.avant, 0])
+        pos = str(self.pos.case.get(pion)[0] + avant) + str(self.pos.case.get(pion)[1])
+        self.eat.eat(pos, couleur)
 
-        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] + 1), couleur)
+        if not self.eat.bloque:
+            self.list_move.append(pos)
+
+        pos = str(self.pos.case.get(pion)[0] + avant) + str(self.pos.case.get(pion)[1] + 1)
+        self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:
-            self.list_move.append([self.avant, 1, self.eat.point])
+            self.list_move.append(pos)
 
-        self.eat.eat(str(self.list_pos_pion[0] + self.avant) + str(self.list_pos_pion[1] - 1), couleur)
+        pos = str(self.pos.case.get(pion)[0] + avant) + str(self.pos.case.get(pion)[1] - 1)
+        self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:
-            self.list_move.append([self.avant, -1, self.eat.point])
+            self.list_move.append(pos)
 
     def promotion(self, pion):
 
