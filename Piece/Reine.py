@@ -34,6 +34,8 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -50,6 +52,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -66,6 +69,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -82,6 +86,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -98,6 +103,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -114,6 +120,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -130,6 +137,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
@@ -146,6 +154,7 @@ class Reine:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
+                    break
 
                 else:
                     self.list_move.append([pos])
