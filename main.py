@@ -25,9 +25,6 @@ finish = False
 couleur_player = ''
 end = False
 case = ''
-coup = {
-    'p': pion.mouvement()
-}
 
 while True:
     end = False
