@@ -25,6 +25,9 @@ finish = False
 couleur_player = ''
 end = False
 case = ''
+fonction = {}
+piece = ''
+mouvement = {}
 
 while True:
     end = False
@@ -44,17 +47,17 @@ while True:
             print("[ERROR] Couleur non valide")
             finish = False
 
-    finish = False
+    finish = False    
 
     while not end:
 
         if couleur_player == 'b':
 
             while not finish:
-                case = input("Quelle piece voulez vous jouez ? [Coordonée] [chiffre, lettre] > ")
-                case_un = case[0] + conversion.convert.get(case[1])
+                case = input("Quelle piece voulez vous jouez ? [Coordonée] [lettre, chiffre] > ")
+                case_un = conversion.convert.get(case[0]) + case[1]
 
-                for cle in conversion.convert.keys():
+                for cle in pos.position.keys():
 
                     if cle == case_un:
 
@@ -71,4 +74,50 @@ while True:
                         print(f"[ERROR] La position {case} n'est pas valide.")
                         break
 
+            finish = False
+            fonction = {
+                'p': pion.mouvement(piece, 'b'),
+                'c': cavalier.mouvement(piece, 'b'),
+                'f': fou.mouvement(piece, 'b'),
+                't': tour.mouvement(piece, 'b'),
+                'r': reine.mouvement(piece, 'b'),
+                'R': roi.mouvement(piece, 'b')
+            }
+            fonction.get(piece[0])
+            mouvement = {
+                'p': pion.list_move,
+                'c': cavalier.list_move,
+                'f': fou.list_move,
+                't': tour.list_move,
+                'r': reine.list_move,
+                'R': roi.list_move
+            }
+
+            while not finish:
+                case = input("Où voulez vous jouez cette pièce ? [Coordonée] [lettre, chiffre] > ")
+                case_un = conversion.convert.get(case[0]) + case[1]
+    
+                for cle in pos.postion.keys():
+    
+                    if cle == case_un:
+
+                        for position in mouvement.get(piece):
+                            possible = False
+
+                            if position == case_un:
+                                possible = True
+                                finish = True
+                                break
+
+                        if not possible:
+                            print(f"[ERROR] La position {case} n'est pas valide.")
+                            break
+
+                        else:
+                            break
+    
+                    else:
+                        print(f"[ERROR] La position {case} n'est pas valide.")
+                        break
+    
             finish = False
