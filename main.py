@@ -28,6 +28,7 @@ case = ''
 fonction = {}
 piece = ''
 mouvement = {}
+possible = False
 
 while True:
     end = False
@@ -97,7 +98,7 @@ while True:
                 case = input("Où voulez vous jouez cette pièce ? [Coordonée] [lettre, chiffre] > ")
                 case_un = conversion.convert.get(case[0]) + case[1]
     
-                for cle in pos.postion.keys():
+                for cle in pos.position.keys():
     
                     if cle == case_un:
 

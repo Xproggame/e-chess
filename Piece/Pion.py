@@ -24,19 +24,21 @@ class Pion:
         else:
             self.avant = -1
 
-        pos = str(self.pos.case.get(pion)[0] + self.avant) + str(self.pos.case.get(pion)[1])
+        pos = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1] + self.avant)
         self.eat.eat(pos, couleur)
 
         if not self.eat.bloque:
-            self.list_move.append(pos)
 
-        pos = str(self.pos.case.get(pion)[0] + self.avant) + str(self.pos.case.get(pion)[1] + 1)
+            if not self.eat.pion_adverse:
+                self.list_move.append(pos)
+
+        pos = str(self.pos.case.get(pion)[0] + 1) + str(self.pos.case.get(pion)[1] +  + self.avant)
         self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:
             self.list_move.append(pos)
 
-        pos = str(self.pos.case.get(pion)[0] + self.avant) + str(self.pos.case.get(pion)[1] - 1)
+        pos = str(self.pos.case.get(pion)[0] - 1) + str(self.pos.case.get(pion)[1] + self.avant)
         self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:

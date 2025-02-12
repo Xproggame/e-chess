@@ -1,13 +1,8 @@
-class In:
+def out(pos: str):
+    position = pos
 
-    def __init__(self):
-        self.out = False
+    if 0 < int(position[0]) < 9 and 0 < int(position[1]) < 9:
+        return False
 
-    def out(self, pos: str):
-        position = pos
-
-        if 0 < int(position[0]) < 9 and 0 < int(position[2]) < 9:
-            self.out = False
-
-        else:
-            self.out = True
+    else:
+        return True

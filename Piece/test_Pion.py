@@ -6,11 +6,11 @@ from Verification.eat import Eat
 
 class TestPion(TestCase):
     def test_mouvement(self):
-        pos = Position
+        pos = Position()
         eat = Eat(pos)
         pion = Pion(pos, eat)
         pion.mouvement('pb8', 'b')
-        self.assertEquals(pion.list_move, ['83'])
+        self.assertEqual(pion.list_move, [['77', 1]])
 
     def test_promotion(self):
         self.fail()
