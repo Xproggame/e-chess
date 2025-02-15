@@ -32,17 +32,21 @@ class Pion:
             if not self.eat.pion_adverse:
                 self.list_move.append(pos)
 
-        pos = str(self.pos.case.get(pion)[0] + 1) + str(self.pos.case.get(pion)[1] +  + self.avant)
+        pos = str(self.pos.case.get(pion)[0] + 1) + str(self.pos.case.get(pion)[1] + self.avant)
         self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:
-            self.list_move.append(pos)
+
+            if not out(pos):
+                self.list_move.append([pos, self.eat.point])
 
         pos = str(self.pos.case.get(pion)[0] - 1) + str(self.pos.case.get(pion)[1] + self.avant)
         self.eat.eat(pos, couleur)
 
         if self.eat.possibilite:
-            self.list_move.append(pos)
+
+            if not out(pos):
+                self.list_move.append([pos, self.eat.point])
 
     def promotion(self, pion):
 

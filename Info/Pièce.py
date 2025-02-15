@@ -48,4 +48,4 @@ class Piece:
         self.ez_point = 0
 
     def find_point(self, piece):
-        self.ez_point = self.point.get(piece[1])
+        self.ez_point = self.point.get(piece[0])

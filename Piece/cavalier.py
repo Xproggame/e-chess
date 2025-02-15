@@ -4,7 +4,7 @@ from Verification.eat import *
 
 class Cavalier:
 
-    def __init__(self, pos: Position, eat: Eat, out: In):
+    def __init__(self, pos: Position, eat: Eat):
         self.out = out
         self.pos = pos
         self.eat = eat
@@ -21,9 +21,8 @@ class Cavalier:
         for element in self.list_possible:
             pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
             self.eat.eat(pos, couleur)
-            self.out.out(pos)
 
-            if not self.out.out and not self.eat.bloque:
+            if not out(pos) and not self.eat.bloque:
 
                 if self.eat.possibilite:
                     self.list_move.append([pos, self.eat.point])
