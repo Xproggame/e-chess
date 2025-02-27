@@ -20,5 +20,9 @@ class Tour:
     def mouvement(self, pion, couleur):
 
         for x in range(3):
+            self.list_move.append(deplacement(self.pos, self.eat, self.position.get(x), pion, couleur))
 
-            deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)
+            for element in self.list_move:
+
+                if element == -1:
+                    self.list_move.remove(-1)

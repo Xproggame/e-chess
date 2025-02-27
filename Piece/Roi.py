@@ -13,4 +13,9 @@ class Roi:
         self.pos_pion = ''
 
     def mouvement(self, pion, couleur):
-        deplacement(self.pos, self.eat, self.list_possible, pion, couleur)
+        self.list_move.append(deplacement(self.pos, self.eat, self.position.get(x), pion, couleur))
+
+        for element in self.list_move:
+
+            if element == -1:
+                self.list_move.remove(-1)

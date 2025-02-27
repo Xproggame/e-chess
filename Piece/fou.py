@@ -20,4 +20,4 @@ class Fou:
     def mouvement(self, pion, couleur):
 
         for x in range(3):
-            deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)
+            self.list_move = deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)

@@ -23,4 +23,9 @@ class Reine:
     def mouvement(self, pion, couleur):
 
         for x in range(7):
-            deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)
+            self.list_move.append(deplacement(self.pos, self.eat, self.position.get(x), pion, couleur))
+
+            for element in self.list_move:
+
+                if element == -1:
+                    self.list_move.remove(-1)

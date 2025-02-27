@@ -13,7 +13,7 @@ def deplacement(pos: Position, eat: Eat, list_possible, pion, couleur):
                 return [position, eat.point]
 
             else:
-                return [pos]
+                return [position]
 
         else:
-            break
+            return -1
