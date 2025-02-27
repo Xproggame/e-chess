@@ -1,6 +1,4 @@
-from Info.Pos import Position
-from Verification.eat import Eat
-from Verification.In import *
+from Piece.Deplacement import *
 
 
 class Fou:
@@ -12,76 +10,14 @@ class Fou:
         self.list_move = []
         self.list_pos_pion = []
         self.pos_pion = ''
+        self.position = {
+            0: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8]],
+            1: [[-1, 1], [-2, 2], [-3, 3], [-4, 4], [-5, 5], [-6, 6], [-7, 7], [-8, 8]],
+            2: [[-1, -1], [-2, -2], [-3, -3], [-4, -4], [-5, -5], [-6, -6], [-7, -7], [-8, -8]],
+            3: [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6], [7, -7], [8, -8]]
+        }
 
     def mouvement(self, pion, couleur):
-        list_possible_un = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8]]
-        list_possible_deux = [[-1, 1], [-2, 2], [-3, 3], [-4, 4], [-5, 5], [-6, 6], [-7, 7], [-8, 8]]
-        list_possible_trois = [[-1, -1], [-2, -2], [-3, -3], [-4, -4], [-5, -5], [-6, -6], [-7, -7], [-8, -8]]
-        list_possible_quatre = [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6], [7, -7], [8, -8]]
-        self.list_move = []
-        self.pos_pion = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1])
-        self.list_pos_pion = [int(self.pos_pion[0]), int(self.pos_pion[1])]
 
-        for element in list_possible_un:
-            pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
-            self.eat.eat(pos, couleur)
-
-            if not out(pos) and not self.eat.bloque:
-
-                if self.eat.possibilite:
-                    self.list_move.append([pos, self.eat.point])
-                    break
-
-                else:
-                    self.list_move.append([pos])
-
-            else:
-                break
-
-        for element in list_possible_deux:
-            pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
-            self.eat.eat(pos, couleur)
-
-            if not out(pos) and not self.eat.bloque:
-
-                if self.eat.possibilite:
-                    self.list_move.append([pos, self.eat.point])
-                    break
-
-                else:
-                    self.list_move.append([pos])
-
-            else:
-                break
-
-        for element in list_possible_trois:
-            pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
-            self.eat.eat(pos, couleur)
-
-            if not out(pos) and not self.eat.bloque:
-
-                if self.eat.possibilite:
-                    self.list_move.append([pos, self.eat.point])
-                    break
-
-                else:
-                    self.list_move.append([pos])
-
-            else:
-                break
-
-        for element in list_possible_quatre:
-            pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
-            self.eat.eat(pos, couleur)
-
-            if not out(pos) and not self.eat.bloque:
-
-                if self.eat.possibilite:
-                    self.list_move.append([pos, self.eat.point])
-                    break
-
-                else:
-                    self.list_move.append([pos])
-
-            else:
-                break
+        for x in range(3):
+            deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)

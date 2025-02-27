@@ -1,5 +1,4 @@
-from Verification.In import *
-from Verification.eat import *
+from Piece.Deplacement import *
 
 
 class Cavalier:
@@ -14,18 +13,4 @@ class Cavalier:
         self.pos_pion = ''
 
     def mouvement(self, pion, couleur):
-        self.list_move = []
-        self.pos_pion = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1])
-        self.list_pos_pion = [int(self.pos_pion[0]), int(self.pos_pion[1])]
-
-        for element in self.list_possible:
-            pos = str(self.pos.case.get(pion)[0] + element[0]) + str(self.pos.case.get(pion)[1] + element[1])
-            self.eat.eat(pos, couleur)
-
-            if not out(pos) and not self.eat.bloque:
-
-                if self.eat.possibilite:
-                    self.list_move.append([pos, self.eat.point])
-
-                else:
-                    self.list_move.append([pos])
+        deplacement(self.pos, self.eat, self.list_possible, pion, couleur)
