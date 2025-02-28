@@ -24,29 +24,29 @@ class Pion:
         else:
             self.avant = -1
 
-        pos = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1] + self.avant)
-        self.eat.eat(pos, couleur)
+        position = str(self.pos.case.get(pion)[0]) + str(self.pos.case.get(pion)[1] + self.avant)
+        self.eat.eat(position, couleur)
 
         if not self.eat.bloque:
 
             if not self.eat.pion_adverse:
-                self.list_move.append(pos)
+                self.list_move.append([position, 0])
 
-        pos = str(self.pos.case.get(pion)[0] + 1) + str(self.pos.case.get(pion)[1] + self.avant)
-        self.eat.eat(pos, couleur)
-
-        if self.eat.possibilite:
-
-            if not out(pos):
-                self.list_move.append([pos, self.eat.point])
-
-        pos = str(self.pos.case.get(pion)[0] - 1) + str(self.pos.case.get(pion)[1] + self.avant)
-        self.eat.eat(pos, couleur)
+        position = str(self.pos.case.get(pion)[0] + 1) + str(self.pos.case.get(pion)[1] + self.avant)
+        self.eat.eat(position, couleur)
 
         if self.eat.possibilite:
 
-            if not out(pos):
-                self.list_move.append([pos, self.eat.point])
+            if not out(position):
+                self.list_move.append([position, self.eat.point])
+
+        position = str(self.pos.case.get(pion)[0] - 1) + str(self.pos.case.get(pion)[1] + self.avant)
+        self.eat.eat(position, couleur)
+
+        if self.eat.possibilite:
+
+            if not out(position):
+                self.list_move.append([position, self.eat.point])
 
     def promotion(self, pion):
 

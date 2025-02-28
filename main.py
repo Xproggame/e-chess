@@ -5,19 +5,17 @@ from Piece.Roi import *
 from Piece.Tour import *
 from Piece.cavalier import *
 from Piece.fou import *
-from Verification.In import *
 from Verification.eat import *
 
 info = Piece()
 pos = Position()
 conversion = Conversion(pos)
-out = In()
 eat = Eat(pos)
-roi = Roi(pos, eat, out)
-reine = Reine(pos, out, eat)
-fou = Fou(pos, out, eat)
-tour = Tour(pos, out, eat)
-cavalier = Cavalier(pos, eat, out)
+roi = Roi(pos, eat)
+reine = Reine(pos, eat)
+fou = Fou(pos, eat)
+tour = Tour(pos, eat)
+cavalier = Cavalier(pos, eat)
 pion = Pion(pos, eat)
 
 arbre = []
@@ -29,24 +27,26 @@ fonction = {}
 piece = ''
 mouvement = {}
 possible = False
+finish_color = False
+list_move = []
 
 while True:
     end = False
 
-    while not finish:
+    while not finish_color:
         couleur_player = input("Quelle couleur voulez vous jouer ? [b, n] > ")
 
         if couleur_player == 'b':
             my_couleur = 'n'
-            finish = True
+            finish_color = True
 
         elif couleur_player == 'n':
             my_couleur = 'b'
-            finish = True
+            finish_color = True
 
         else:
             print("[ERROR] Couleur non valide")
-            finish = False
+            finish_color = False
 
     finish = False    
 
@@ -71,9 +71,8 @@ while True:
                             print(f"[ERROR] Il n'y a pas de pièce à la position {case}.")
                             break
 
-                    else:
-                        print(f"[ERROR] La position {case} n'est pas valide.")
-                        break
+                if not finish:
+                    print(f"[ERROR] La position {case} n'est pas valide.")
 
             finish = False
             fonction = {
@@ -101,11 +100,12 @@ while True:
                 for cle in pos.position.keys():
     
                     if cle == case_un:
+                        list_move = mouvement.get(piece[0])
 
-                        for position in mouvement.get(piece):
+                        for position in list_move:
                             possible = False
 
-                            if position == case_un:
+                            if position[0] == case_un:
                                 possible = True
                                 finish = True
                                 break
@@ -116,9 +116,8 @@ while True:
 
                         else:
                             break
-    
-                    else:
-                        print(f"[ERROR] La position {case} n'est pas valide.")
-                        break
+
+                if not finish:
+                    print(f"[ERROR] La position {case} n'est pas valide.")
     
             finish = False
