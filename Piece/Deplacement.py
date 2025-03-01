@@ -1,7 +1,7 @@
 from Verification.eat import *
 
 
-def deplacement(pos: Position, eat: Eat, list_possible, pion, couleur):
+def deplacement(pos: Board, eat: Eat, list_possible, pion, couleur):
     
     for element in list_possible:
         position = str(pos.case.get(pion)[0] + element[0]) + str(pos.case.get(pion)[1] + element[1])

@@ -1,9 +1,9 @@
-from Info.Pos import *
+from Info.Board import *
 
 
 class Conversion:
 
-    def __init__(self, pos: Position):
+    def __init__(self, pos: Board):
         self.pos = pos
         self.convert = {
             'a': '1',

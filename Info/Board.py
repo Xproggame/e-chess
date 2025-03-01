@@ -1,6 +1,6 @@
 # [y, x]
 
-class Position:
+class Board:
 
     def __init__(self):
 

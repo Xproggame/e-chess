@@ -2,7 +2,7 @@ from Piece.Deplacement import *
 
 class Reine:
 
-    def __init__(self, pos: Position, eat: Eat):
+    def __init__(self, pos: Board, eat: Eat):
         self.out = out
         self.pos = pos
         self.eat = eat

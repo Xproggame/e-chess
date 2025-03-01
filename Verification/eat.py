@@ -1,19 +1,21 @@
-from Info.Pos import *
+from Info.Board import *
 from Info.Pièce import *
 from Verification.In import *
-
-point = Piece()
 
 
 class Eat:
 
-    def __init__(self, pos: Position):
+    def __init__(self, pos: Board, point: Piece):
         self.pos = pos
         self.possibilite = False
         self.piece = ''
         self.point = 0
         self.bloque = False
         self.pion_adverse = False
+        self.remove_var = {
+            'b': point.piece_b.remove(piece),
+            'n': point.piece_n.remove(piece)
+        }
 
     def eat(self, case: str, couleur):
         self.pion_adverse = False
@@ -34,5 +36,6 @@ class Eat:
                 self.possibilite = False
                 self.bloque = False
 
-    def delete(self, piece):
+    def delete(self, piece, couleur):
         self.pos.case[piece] = False
+        self.var.get(couleur)()

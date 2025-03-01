@@ -8,9 +8,9 @@ from Piece.fou import *
 from Verification.eat import *
 
 info = Piece()
-pos = Position()
+pos = Board()
 conversion = Conversion(pos)
-eat = Eat(pos)
+eat = Eat(pos, info)
 roi = Roi(pos, eat)
 reine = Reine(pos, eat)
 fou = Fou(pos, eat)
@@ -121,3 +121,4 @@ while True:
                     print(f"[ERROR] La position {case} n'est pas valide.")
     
             finish = False
+

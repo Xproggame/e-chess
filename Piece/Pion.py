@@ -3,7 +3,7 @@ from Verification.eat import *
 
 class Pion:
 
-    def __init__(self, pos: Position, eat: Eat):
+    def __init__(self, pos: Board, eat: Eat):
         self.eat = eat
         self.pos = pos
         self.pos_pion = ''
