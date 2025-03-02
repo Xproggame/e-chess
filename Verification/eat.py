@@ -7,15 +7,12 @@ class Eat:
 
     def __init__(self, pos: Board, point: Piece):
         self.pos = pos
+        self.pion = point
         self.possibilite = False
         self.piece = ''
         self.point = 0
         self.bloque = False
         self.pion_adverse = False
-        self.remove_var = {
-            'b': point.piece_b.remove(piece),
-            'n': point.piece_n.remove(piece)
-        }
 
     def eat(self, case: str, couleur):
         self.pion_adverse = False
@@ -26,8 +23,8 @@ class Eat:
                 self.pion_adverse = True
                 self.possibilite = True
                 self.piece = self.pos.position.get(case)
-                point.find_point(self.piece)
-                self.point = point.ez_point
+                self.pion.find_point(self.piece)
+                self.point = self.pion.ez_point
 
             elif self.pos.position.get(case).find(couleur) != -1:
                 self.bloque = True
@@ -37,5 +34,9 @@ class Eat:
                 self.bloque = False
 
     def delete(self, piece, couleur):
+        remove_var = {
+            'b': self.pion.piece_b.remove(self.pion),
+            'n': self.pion.piece_n.remove(self.pion)
+        }
         self.pos.case[piece] = False
-        self.var.get(couleur)()
+        remove_var.get(couleur)()

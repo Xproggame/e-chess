@@ -6,17 +6,19 @@ from Piece.Tour import *
 from Piece.cavalier import *
 from Piece.fou import *
 from Verification.eat import *
+from Move import Move
 
 info = Piece()
-pos = Board()
-conversion = Conversion(pos)
-eat = Eat(pos, info)
-roi = Roi(pos, eat)
-reine = Reine(pos, eat)
-fou = Fou(pos, eat)
-tour = Tour(pos, eat)
-cavalier = Cavalier(pos, eat)
-pion = Pion(pos, eat)
+board = Board()
+conversion = Conversion(board)
+eat = Eat(board, info)
+roi = Roi(board, eat)
+reine = Reine(board, eat)
+fou = Fou(board, eat)
+tour = Tour(board, eat)
+cavalier = Cavalier(board, eat)
+pion = Pion(board, eat)
+move = Move(board, pion, cavalier, fou, tour, reine, roi, eat, info)
 
 arbre = []
 finish = False
@@ -58,13 +60,13 @@ while True:
                 case = input("Quelle piece voulez vous jouez ? [Coordonée] [lettre, chiffre] > ")
                 case_un = conversion.convert.get(case[0]) + case[1]
 
-                for cle in pos.position.keys():
+                for cle in board.position.keys():
 
                     if cle == case_un:
 
-                        if pos.position.get(case_un) != '':
+                        if board.position.get(case_un) != '':
                             finish = True
-                            piece = pos.position.get(case_un)
+                            piece = board.position.get(case_un)
                             break
 
                         else:
@@ -97,7 +99,7 @@ while True:
                 case = input("Où voulez vous jouez cette pièce ? [Coordonée] [lettre, chiffre] > ")
                 case_un = conversion.convert.get(case[0]) + case[1]
     
-                for cle in pos.position.keys():
+                for cle in board.position.keys():
     
                     if cle == case_un:
                         list_move = mouvement.get(piece[0])
@@ -121,4 +123,3 @@ while True:
                     print(f"[ERROR] La position {case} n'est pas valide.")
     
             finish = False
-
