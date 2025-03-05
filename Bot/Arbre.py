@@ -12,6 +12,8 @@ class Arbre:
         self.piece = piece
         self.move = move
         self.arbre = {}
+        self.noeud = 0
+        self.super_noeud = 0
         self.list_piece = {
             'b': self.piece.piece_b,
             'n': self.piece.piece_n
@@ -21,3 +23,8 @@ class Arbre:
     def create_arbre(self, color):
         self.actual_board = self.board.position
         self.move.move(color)
+
+        for piece in self.list_piece.get(color):
+
+            for move in self.move.list_move.get(piece):
+                self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece, move[0], move[1], self.actual_board]

@@ -6,7 +6,8 @@ from Piece.Tour import *
 from Piece.cavalier import *
 from Piece.fou import *
 from Verification.eat import *
-from Move import Move
+from Bot.Move import Move
+from Bot.Arbre import Arbre
 
 info = Piece()
 board = Board()
@@ -19,8 +20,8 @@ tour = Tour(board, eat)
 cavalier = Cavalier(board, eat)
 pion = Pion(board, eat)
 move = Move(board, pion, cavalier, fou, tour, reine, roi, eat, info)
+arbre = Arbre(move, info, board, conversion)
 
-arbre = []
 finish = False
 couleur_player = ''
 end = False
