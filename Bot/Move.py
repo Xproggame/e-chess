@@ -22,31 +22,33 @@ class Move:
         self.roi = roi
         self.eat = eat
         self.list_piece = list_piece
-        self.list_move_len = {
-            'p': self.pion.list_move,
-            't': self.tour.list_move,
-            'c': self.cavalier.list_move,
-            'f': self.fou.list_move,
-            'r': self.reine.list_move,
-            'R': self.roi.list_move
-        }
         self.couleur = {
             'b': self.list_piece.piece_b,
             'n': self.list_piece.piece_n
         }
         self.list_move = {}
 
-    def move(self, color):
+    def move(self, color: str):
         self.list_move = {}
 
         for piece in self.couleur.get(color):
             list_fonction = {
-                'p': self.pion.mouvement(piece, color),
-                't': self.tour.mouvement(piece, color),
-                'c': self.cavalier.mouvement(piece, color),
-                'f': self.fou.mouvement(piece, color),
-                'r': self.reine.mouvement(piece, color),
-                'R': self.roi.mouvement(piece, color)
+                'p': self.pion,
+                't': self.tour,
+                'c': self.cavalier,
+                'f': self.fou,
+                'r': self.reine,
+                'R': self.roi
             }
-            list_fonction.get(piece[0])()
-            self.list_move[piece[0]] = self.list_move_len
+            list_fonction.get(piece[0]).mouvement(piece, color)
+            list_move_search = {
+                'p': self.pion.list_move,
+                't': self.tour.list_move,
+                'c': self.cavalier.list_move,
+                'f': self.fou.list_move,
+                'r': self.reine.list_move,
+                'R': self.roi.list_move
+            }
+
+            if list_move_search.get(piece[0]) != []:
+                self.list_move[piece[0]] = list_move_search.get(piece[0])

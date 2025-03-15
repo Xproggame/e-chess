@@ -124,3 +124,6 @@ while True:
                     print(f"[ERROR] La position {case} n'est pas valide.")
     
             finish = False
+
+        coup = arbre.create_arbre(my_couleur, couleur_player)
+        conversion.move(int(coup[0][1]), int(coup[0][0]), int(coup[1]))

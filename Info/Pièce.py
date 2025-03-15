@@ -17,7 +17,7 @@ class Piece:
             'pb5',
             'pb6',
             'pb7',
-            'pb8',
+            'pb8'
         ]
         self.piece_n = [
             'tn1',
@@ -35,7 +35,7 @@ class Piece:
             'pn5',
             'pn6',
             'pn7',
-            'pn8',
+            'pn8'
         ]
         self.point = {
             'p': 1,
