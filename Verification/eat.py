@@ -19,6 +19,9 @@ class Eat:
 
         if not out(case):
 
+            if self.pos.position.get(case) == None:
+                print("ERROR")
+
             if self.pos.position.get(case) != '' and self.pos.position.get(case).find(couleur) == -1:
                 self.pion_adverse = True
                 self.possibilite = True

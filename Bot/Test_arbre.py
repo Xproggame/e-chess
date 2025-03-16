@@ -27,7 +27,7 @@ class MyTestCase(unittest.TestCase):
         pion = Pion(board, eat)
         move = Move(board, pion, cavalier, fou, tour, reine, roi, eat, info)
         arbre = Arbre(move, info, board, convert)
-        self.assertEqual(arbre.create_arbre('b', 'n'), ['83', 'pb8'])  # add assertion here
+        self.assertEqual(arbre.create_arbre('n', 'b'), ['86', 'pn8'])  # add assertion here
 
 
 if __name__ == '__main__':

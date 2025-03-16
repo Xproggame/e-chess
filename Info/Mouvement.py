@@ -3,8 +3,8 @@ from Info.Board import *
 
 class Conversion:
 
-    def __init__(self, pos: Board):
-        self.pos = pos
+    def __init__(self, board: Board):
+        self.board = board
         self.convert = {
             'a': '1',
             'b': '2',
@@ -27,9 +27,8 @@ class Conversion:
         }
 
     def move(self, x: int, y: int, piece):
-        pos_base = str(self.pos.case.get(piece))
-        self.pos.position[pos_base[0] + pos_base[1]] = ''
-        self.pos.case[piece][0] += y
-        self.pos.case[piece][1] += x
-        pos = str(self.pos.case.get[piece])
-        self.pos.position[pos[0] + pos[1]] = piece
+        pos_base = str(self.board.case.get(piece)[0]) + str(self.board.case.get(piece)[1])
+        self.board.position[pos_base[0] + pos_base[1]] = ''
+        self.board.case[piece][0] = y
+        self.board.case[piece][1] = x
+        self.board.position[str(x) + str(y)] = piece

@@ -21,6 +21,8 @@ class Arbre:
         self.actual_board = {}
 
     def create_arbre(self, my_color, color):
+        self.arbre = {}
+        arbre_iterrable = {}
         self.noeud = 0
         self.super_noeud = 0
         self.actual_board = self.board.position
@@ -65,7 +67,7 @@ class Arbre:
 
         for key in key_valide:
 
-            if self.arbre.get(key)[2] >= best[1]:
+            if self.arbre.get(key)[2] >= best[1] or best == ['', 0]:
                 best = [key, self.arbre.get(key)[2]]
 
         return [self.arbre.get(best[0])[1], self.arbre.get(best[0])[0]]

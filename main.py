@@ -79,14 +79,14 @@ while True:
 
             finish = False
             fonction = {
-                'p': pion.mouvement(piece, 'b'),
-                'c': cavalier.mouvement(piece, 'b'),
-                'f': fou.mouvement(piece, 'b'),
-                't': tour.mouvement(piece, 'b'),
-                'r': reine.mouvement(piece, 'b'),
-                'R': roi.mouvement(piece, 'b')
+                'p': pion,
+                'c': cavalier,
+                'f': fou,
+                't': tour,
+                'r': reine,
+                'R': roi
             }
-            fonction.get(piece[0])
+            fonction.get(piece[0]).mouvement(piece, 'b')
             mouvement = {
                 'p': pion.list_move,
                 'c': cavalier.list_move,
@@ -124,6 +124,10 @@ while True:
                     print(f"[ERROR] La position {case} n'est pas valide.")
     
             finish = False
+        conversion.move(int(case_un[0]), int(case_un[1]), piece)
 
-        coup = arbre.create_arbre(my_couleur, couleur_player)
-        conversion.move(int(coup[0][1]), int(coup[0][0]), int(coup[1]))
+        if my_couleur == 'n':
+            coup_final = arbre.create_arbre(my_couleur, couleur_player)
+            case_piece = str(board.case.get(coup_final[1])[0]) + str(board.case.get(coup_final[1])[1])
+            conversion.move(int(coup_final[0][1]), int(coup_final[0][0]), coup_final[1])
+            print(f"Le Bot a joué la pièce {conversion.deconvert.get(case_piece[0]) + case_piece[1]} en {conversion.deconvert.get(coup_final[0][0]) + coup_final[0][1]}")
