@@ -27,8 +27,7 @@ class Conversion:
         }
 
     def move(self, x: int, y: int, piece):
-        pos_base = str(self.board.case.get(piece)[0]) + str(self.board.case.get(piece)[1])
-        self.board.position[pos_base[0] + pos_base[1]] = ''
-        self.board.case[piece][0] = y
-        self.board.case[piece][1] = x
+        self.board.position[str(self.board.case.get(piece)[0]) + str(self.board.case.get(piece)[1])] = ''
+        self.board.case[piece][0] = x
+        self.board.case[piece][1] = y
         self.board.position[str(x) + str(y)] = piece

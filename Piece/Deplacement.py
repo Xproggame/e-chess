@@ -1,5 +1,6 @@
 from Verification.eat import *
 
+list_move = []
 
 def deplacement(pos: Board, eat: Eat, list_possible, pion, couleur):
     
@@ -10,10 +11,13 @@ def deplacement(pos: Board, eat: Eat, list_possible, pion, couleur):
         if not out(position) and not eat.bloque:
 
             if eat.possibilite:
-                return [position, eat.point]
+                list_possible.append([position, eat.point])
+                return list_possible
 
             else:
-                return [position, 0]
+                list_possible.append([position, 0])
 
         else:
             return -1
+
+        return list_possible

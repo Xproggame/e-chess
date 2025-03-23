@@ -8,12 +8,24 @@ class Cavalier:
         self.pos = pos
         self.eat = eat
         self.list_move = []
-        self.list_possible = [[2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1], [-2, -1], [-1, -2], [1, -2]]
+        self.list_possible = {[2, -1],
+                              [2, 1],
+                              [1, 2],
+                              [-1, 2],
+                              [-2, 1],
+                              [-2, -1],
+                              [-1, -2],
+                              [1, -2]
+                              }
         self.list_pos_pion = []
         self.pos_pion = ''
 
     def mouvement(self, pion, couleur):
-        self.list_move.append(deplacement(self.pos, self.eat, self.list_possible, pion, couleur))
+        coup = deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)
+
+        if coup != -1:
+            for element in coup:
+                list_move.append(element)
 
         for element in self.list_move:
 
