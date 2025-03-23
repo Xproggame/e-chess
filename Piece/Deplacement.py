@@ -11,13 +11,13 @@ def deplacement(pos: Board, eat: Eat, list_possible, pion, couleur):
         if not out(position) and not eat.bloque:
 
             if eat.possibilite:
-                list_possible.append([position, eat.point])
-                return list_possible
+                list_move.append([position, eat.point])
+                return list_move
 
             else:
-                list_possible.append([position, 0])
+                list_move.append([position, 0])
 
         else:
             return -1
 
-        return list_possible
+        return list_move

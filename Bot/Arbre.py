@@ -30,7 +30,7 @@ class Arbre:
 
         for piece in self.list_piece.get(my_color):
 
-            if self.move.list_move.get(piece[0]) != None:
+            if self.move.list_move.get(piece[0]) is not None:
 
                 for move in self.move.list_move.get(piece[0]):
                     self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece, move[0], move[1], self.actual_board, self.noeud]
@@ -49,7 +49,7 @@ class Arbre:
 
             for piece in self.list_piece.get(my_color):
 
-                if self.move.list_move.get(piece[0]) != None:
+                if self.move.list_move.get(piece[0]) is not None:
 
                     for move in self.move.list_move.get(piece[0]):
                         self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece[0], move[0], move[1], self.actual_board]

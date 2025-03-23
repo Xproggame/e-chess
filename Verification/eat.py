@@ -19,22 +19,21 @@ class Eat:
 
         if not out(case):
 
-            if self.pos.position.get(case) == None:
-                print("ERROR")
+            if self.pos.position.get(case) is not None:
 
-            if self.pos.position.get(case) != '' and self.pos.position.get(case).find(couleur) == -1:
-                self.pion_adverse = True
-                self.possibilite = True
-                self.piece = self.pos.position.get(case)
-                self.pion.find_point(self.piece)
-                self.point = self.pion.ez_point
+                if self.pos.position.get(case) != '' and self.pos.position.get(case).find(couleur) == -1:
+                    self.pion_adverse = True
+                    self.possibilite = True
+                    self.piece = self.pos.position.get(case)
+                    self.pion.find_point(self.piece)
+                    self.point = self.pion.ez_point
 
-            elif self.pos.position.get(case).find(couleur) != -1:
-                self.bloque = True
+                elif self.pos.position.get(case).find(couleur) != -1:
+                    self.bloque = True
 
-            else:
-                self.possibilite = False
-                self.bloque = False
+                else:
+                    self.possibilite = False
+                    self.bloque = False
 
     def delete(self, piece, couleur):
         remove_var = {

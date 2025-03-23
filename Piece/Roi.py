@@ -9,14 +9,14 @@ class Roi:
         self.eat = eat
         self.list_move = []
         self.list_possible = {
-            0: [1, 0],
-            1: [1, 1],
-            2: [0, 1],
-            3: [-1, 1],
-            4: [-1, 0],
-            5: [-1, -1],
-            6: [0, -1],
-            7: [1, -1]
+            0: [[1, 0]],
+            1: [[1, 1]],
+            2: [[0, 1]],
+            3: [[-1, 1]],
+            4: [[-1, 0]],
+            5: [[-1, -1]],
+            6: [[0, -1]],
+            7: [[1, -1]]
         }
         self.list_pos_pion = []
         self.pos_pion = ''
@@ -27,7 +27,7 @@ class Roi:
 
             if coup != -1:
                 for element in coup:
-                    list_move.append(element)
+                    self.list_move.append(element)
 
             for element in self.list_move:
 

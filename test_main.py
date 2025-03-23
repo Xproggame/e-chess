@@ -130,7 +130,7 @@ class MyTestCase(unittest.TestCase):
                     conversion.move(int(coup_final[0][1]), int(coup_final[0][0]), coup_final[1])
                     print(f"Le Bot a joué la pièce {conversion.deconvert.get(case_piece[0]) + case_piece[1]} en {conversion.deconvert.get(coup_final[0][0]) + coup_final[0][1]}")
 
-        self.assertEqual(True, True)  # add assertion here
+        self.assertEqual(True, True)
 
 
 if __name__ == '__main__':

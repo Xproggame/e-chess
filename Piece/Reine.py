@@ -27,7 +27,7 @@ class Reine:
 
             if coup != -1:
                 for element in coup:
-                    list_move.append(element)
+                    self.list_move.append(element)
 
             for element in self.list_move:
 

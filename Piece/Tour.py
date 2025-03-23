@@ -10,7 +10,7 @@ class Tour:
         self.list_move = []
         self.list_pos_pion = []
         self.pos_pion = ''
-        self.position = {
+        self.list_possible = {
             0: [[1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0], [7, 0], [8, 0]],
             1: [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
             2: [[-1, 0], [-2, 0], [-3, 0], [-4, 0], [-5, 0], [-6, 0], [-7, 0], [-8, 0]],
@@ -20,11 +20,15 @@ class Tour:
     def mouvement(self, pion, couleur):
 
         for x in range(3):
-            coup = deplacement(self.pos, self.eat, self.position.get(x), pion, couleur)
+
+            if x == 1:
+                pass
+
+            coup = deplacement(self.pos, self.eat, self.list_possible.get(x), pion, couleur)
 
             if coup != -1:
                 for element in coup:
-                    list_move.append(element)
+                    self.list_move.append(element)
 
             for element in self.list_move:
 
