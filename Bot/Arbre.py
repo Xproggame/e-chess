@@ -2,7 +2,9 @@ from Bot.Move import Move
 from Info.Pièce import Piece
 from Info.Board import Board
 from Info.Mouvement import Conversion
+from Bot.Sort import Sort
 
+sort = Sort()
 
 class Arbre:
 
@@ -22,7 +24,6 @@ class Arbre:
 
     def create_arbre(self, my_color, color):
         self.arbre = {}
-        arbre_iterrable = {}
         self.noeud = 0
         self.super_noeud = 0
         self.actual_board = self.board.position
@@ -33,8 +34,11 @@ class Arbre:
             if self.move.list_move.get(piece[0]) is not None:
 
                 for move in self.move.list_move.get(piece[0]):
-                    self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece, move[0], move[1], self.actual_board, self.noeud]
-                    self.noeud += 1
+
+                    if sort.tri(move[1]):
+                        self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece, move[0], move[1], self.actual_board, self.noeud]
+                        self.noeud += 1
+                        print(f"{self.super_noeud}.{self.noeud}")
 
         self.super_noeud += 1
         self.noeud = 0
@@ -52,9 +56,12 @@ class Arbre:
                 if self.move.list_move.get(piece[0]) is not None:
 
                     for move in self.move.list_move.get(piece[0]):
-                        self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece[0], move[0], move[1], self.actual_board]
-                        self.noeud += 1
-                        self.arbre[f'0.{coup[4]}'] = [coup[0], coup[1], coup[2] - move[1], coup[3], coup[4]]
+
+                        if sort.tri(move[1]):
+                            self.arbre[f'{str(self.super_noeud)}.{str(self.noeud)}'] = [piece[0], move[0], move[1], self.actual_board]
+                            self.noeud += 1
+                            self.arbre[f'0.{coup[4]}'] = [coup[0], coup[1], coup[2] - move[1], coup[3], coup[4]]
+                            print(f"{self.super_noeud}.{self.noeud}")
 
         key_valide = []
 

@@ -30,7 +30,7 @@ class MyTestCase(unittest.TestCase):
         piece = ''
         possible = False
         finish_color = False
-        list_coup = [['h2', 'h4'], ['h1', 'h3']]
+        list_coup = [['e2', 'e4'], ['d1', 'd5']]
 
         while True:
 

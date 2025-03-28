@@ -25,7 +25,7 @@ class Roi:
         for x in range(7):
             coup = deplacement(self.pos, self.eat, self.list_possible.get(x), pion, couleur)
 
-            if coup != -1:
+            if coup != []:
                 for element in coup:
                     self.list_move.append(element)
 

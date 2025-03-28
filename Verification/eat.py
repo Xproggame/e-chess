@@ -16,6 +16,7 @@ class Eat:
 
     def eat(self, case: str, couleur):
         self.pion_adverse = False
+        self.bloque = False
 
         if not out(case):
 
